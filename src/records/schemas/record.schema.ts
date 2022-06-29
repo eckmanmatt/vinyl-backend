@@ -1,8 +1,18 @@
-import * as mongoose from 'mongoose';
+import {Prop, Schema, SchemaFactory } from "@nestjs/mongoose"
 
-export const RecordModel = new mongoose.Schema({
-  title: String,
-  artist: String,
-  year: Number,
-  cover: String,
-})
+@Schema()
+export class Record {
+  @Prop()
+  name: string;
+
+  @Prop()
+  artist: string;
+
+  @Prop()
+  year: number;
+
+  @Prop()
+  cover: string;
+}
+
+export const RecordSchema = SchemaFactory.createForClass(Record);
